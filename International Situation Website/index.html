@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f4efe6" />
+    <title>国际局势观察</title>
+    <meta
+      name="description"
+      content="基于可核验来源的全球与分地区国际局势快照，覆盖东亚、中亚、中东、欧洲、北美与南美。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Noto+Serif+SC:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./data/site.js"></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body data-page="home">
+    <a class="skip-link" href="#main-content">跳到正文</a>
+
+    <div class="page-shell">
+      <div class="paper-noise" aria-hidden="true"></div>
+
+      <header class="topbar">
+        <a class="brand" href="./index.html">
+          <span class="brand-kicker">Situation Monitor</span>
+          <strong>国际局势观察</strong>
+        </a>
+        <nav class="topnav" id="topnav" aria-label="主导航"></nav>
+      </header>
+
+      <main id="main-content" class="main-layout">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Global Snapshot</p>
+            <h1 id="hero-title">正在加载全球快照</h1>
+            <p class="hero-summary" id="hero-dek"></p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#map-title">查看地图入口</a>
+              <a class="button button-secondary" href="#methodology">查看方法论</a>
+            </div>
+          </div>
+
+          <aside class="hero-panel" aria-label="数据状态">
+            <p class="eyebrow">Snapshot</p>
+            <ul class="stat-grid" id="stat-grid"></ul>
+            <p class="hero-note" id="last-updated-label"></p>
+          </aside>
+        </section>
+
+        <section class="section intro-grid">
+          <article class="panel">
+            <p class="section-kicker">Global Reading</p>
+            <h2>当前总览</h2>
+            <div class="bullet-list" id="overview-points"></div>
+          </article>
+          <article class="panel panel-emphasis">
+            <p class="section-kicker">Editorial Note</p>
+            <h2>本页如何更新</h2>
+            <p id="snapshot-note"></p>
+          </article>
+        </section>
+
+        <section class="section" aria-labelledby="map-title">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Map Entry</p>
+              <h2 id="map-title">地图入口与地区排序</h2>
+            </div>
+            <p class="section-copy">首页按西半球到东半球排序，每个地区用固定色标和地图位置标识。</p>
+          </div>
+          <div class="map-layout">
+            <div class="map-board" id="map-board" aria-label="世界分区入口图"></div>
+            <div class="map-directory" id="map-directory"></div>
+          </div>
+        </section>
+
+        <section class="section" id="hotspots" aria-labelledby="hotspots-title">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Hotspots</p>
+              <h2 id="hotspots-title">重点热点</h2>
+            </div>
+            <p class="section-copy">每张卡片都带有风险级别、地区色标、最近变化和可点击来源。</p>
+          </div>
+          <div class="card-grid hotspot-grid" id="hotspot-grid"></div>
+        </section>
+
+        <section class="section" aria-labelledby="regions-title">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Regions</p>
+              <h2 id="regions-title">地区入口</h2>
+            </div>
+            <p class="section-copy">地区卡片按固定顺序排列，进入地区页查看关键行为体、时间线和完整来源清单。</p>
+          </div>
+          <div class="card-grid region-grid" id="region-grid"></div>
+        </section>
+
+        <section class="section" aria-labelledby="latest-title">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Latest</p>
+              <h2 id="latest-title">最新发展</h2>
+            </div>
+            <p class="section-copy">按快照逻辑选取跨地区高影响条目，避免被单一战线淹没。</p>
+          </div>
+          <div class="development-list" id="latest-list"></div>
+        </section>
+
+        <section class="section" aria-labelledby="timeline-title">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Timeline</p>
+              <h2 id="timeline-title">跨地区时间线</h2>
+            </div>
+            <p class="section-copy">时间线按日期倒序排列，颜色保持与地区一致，便于判断安全态势如何联动变化。</p>
+          </div>
+          <ol class="timeline-list" id="timeline-list"></ol>
+        </section>
+
+        <section class="section" id="methodology" aria-labelledby="methodology-title">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Methodology</p>
+              <h2 id="methodology-title">方法论与来源层级</h2>
+            </div>
+            <p class="section-copy">更新优先使用联合国、欧盟、外交部等一手来源，再用 AP、Reuters 等补充动态排序。</p>
+          </div>
+          <div class="method-grid">
+            <article class="panel">
+              <h3>更新流程</h3>
+              <p id="update-process"></p>
+            </article>
+            <article class="panel">
+              <h3>来源分层</h3>
+              <div class="source-group-list" id="source-group-list"></div>
+            </article>
+            <article class="panel">
+              <h3>刷新命令</h3>
+              <pre class="command-block"><code>python scripts/build_site_data.py --input data/international-situation.json --output data/site.js
+python scripts/validate_site_data.py data/international-situation.json</code></pre>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

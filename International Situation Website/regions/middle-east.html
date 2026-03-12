@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f4efe6" />
+    <title>中东局势 | 国际局势观察</title>
+    <meta
+      name="description"
+      content="查看中东局势快照，包括加沙、黎以边境与叙利亚转型的近期变化。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Noto+Serif+SC:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <script src="../data/site.js"></script>
+    <script src="../app.js" defer></script>
+  </head>
+  <body data-page="region" data-region="middle-east" data-base-path="..">
+    <a class="skip-link" href="#main-content">跳到正文</a>
+    <div class="page-shell">
+      <div class="paper-noise" aria-hidden="true"></div>
+      <header class="topbar">
+        <a class="brand" href="../index.html">
+          <span class="brand-kicker">Situation Monitor</span>
+          <strong>国际局势观察</strong>
+        </a>
+        <nav class="topnav" id="topnav" aria-label="主导航"></nav>
+      </header>
+      <main id="main-content" class="main-layout">
+        <section class="hero region-hero" id="region-hero"></section>
+        <section class="section two-column-section">
+          <article class="panel">
+            <p class="section-kicker">Actors</p>
+            <h2>关键行为体</h2>
+            <div class="chip-list" id="actors-list"></div>
+          </article>
+          <article class="panel panel-emphasis">
+            <p class="section-kicker">Snapshot</p>
+            <h2>快照说明</h2>
+            <p id="region-snapshot-note"></p>
+          </article>
+        </section>
+        <section class="section" aria-labelledby="hotspot-title">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Hotspots</p>
+              <h2 id="hotspot-title">活跃热点</h2>
+            </div>
+          </div>
+          <div class="card-grid hotspot-grid" id="region-hotspots"></div>
+        </section>
+        <section class="section" aria-labelledby="developments-title">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Developments</p>
+              <h2 id="developments-title">最新发展</h2>
+            </div>
+          </div>
+          <div class="development-list" id="region-developments"></div>
+        </section>
+        <section class="section" aria-labelledby="timeline-title">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Timeline</p>
+              <h2 id="timeline-title">时间线</h2>
+            </div>
+          </div>
+          <ol class="timeline-list" id="region-timeline"></ol>
+        </section>
+        <section class="section" aria-labelledby="sources-title">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Sources</p>
+              <h2 id="sources-title">来源清单</h2>
+            </div>
+          </div>
+          <div class="source-register" id="region-sources"></div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

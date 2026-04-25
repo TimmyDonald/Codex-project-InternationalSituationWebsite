@@ -29,10 +29,34 @@ REQUIRED_REGION_KEYS = {
 }
 
 
+def ensure_no_mojibake_strings(payload: object) -> None:
+    suspicious: list[str] = []
+
+    def visit(value: object, path: str) -> None:
+        if isinstance(value, dict):
+            for key, child in value.items():
+                visit(child, f"{path}.{key}" if path else str(key))
+            return
+        if isinstance(value, list):
+            for index, child in enumerate(value):
+                visit(child, f"{path}[{index}]")
+            return
+        if isinstance(value, str) and ("\ufffd" in value or "???" in value):
+            suspicious.append(path)
+
+    visit(payload, "")
+    if suspicious:
+        raise ValueError(
+            "possible mojibake detected in strings: " + ", ".join(suspicious[:12])
+        )
+
+
 def validate_site_data(payload: dict) -> None:
     missing = REQUIRED_TOP_LEVEL_KEYS - payload.keys()
     if missing:
         raise ValueError(f"missing top-level keys: {', '.join(sorted(missing))}")
+
+    ensure_no_mojibake_strings(payload)
 
     source_ids = set()
     for source in payload["sources"]:
